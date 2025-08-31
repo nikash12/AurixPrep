@@ -28,7 +28,7 @@ interface SessionDetails {
   title: string;
   jobDescription: string;
   interviewMode: "interview" | "mock" | "";
-  language: "English" | "Tamil" | "Hindi" | "Japanese" | "";
+  language: "English" | "Tamil" | "Hindi" | "Japanese" |"Bengali" | "Italian" | "Spanish" | "French";
   resume?: File | null;
 }
 
@@ -143,7 +143,7 @@ export function SessionDetailsForm() {
                   onValueChange={(value) =>
                     handleSelectChange(
                       "language",
-                      value as "English" | "Tamil" | "Hindi" | "Japanese"
+                      value as "English" | "Tamil" | "Hindi" | "Japanese" | "Bengali" | "Italian" | "Spanish" | "French"
                     )
                   }
                   value={sessionDetails.language}
@@ -157,6 +157,10 @@ export function SessionDetailsForm() {
                     <SelectItem value="Tamil">Tamil</SelectItem>
                     <SelectItem value="Hindi">Hindi</SelectItem>
                     <SelectItem value="Japanese">Japanese</SelectItem>
+                    <SelectItem value="Bengali">Bengali</SelectItem>
+                    <SelectItem value="Italian">Italian</SelectItem>
+                    <SelectItem value="Spanish">Spanish</SelectItem>
+                    <SelectItem value="French">French</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

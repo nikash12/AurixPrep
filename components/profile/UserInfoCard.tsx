@@ -1,18 +1,60 @@
 // components/UserInfoCard.tsx
+"use client"
 
-import React from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { User } from 'lucide-react'
-import type { User as UserType } from '@/types'
+import React from "react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { LogOut, User } from "lucide-react"
+import type { User as UserType } from "@/types"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from "@/components/ui/dialog"
+import { Button } from "../ui/button"
+import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 interface UserInfoCardProps {
   user: UserType
 }
 
 export const UserInfoCard: React.FC<UserInfoCardProps> = ({ user }) => {
+  const [logoutPopUp, setLogoutPopUp] = React.useState(false)
+  const router = useRouter()
+
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    toast.success("Logged out successfully")
+    router.push("/auth/login")
+  }
+
   return (
     <Card>
+      {/* Logout Confirmation Dialog */}
+      <Dialog open={logoutPopUp} onOpenChange={setLogoutPopUp}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Log Out</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to log out?
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setLogoutPopUp(false)}>
+              Cancel
+            </Button>
+            <Button variant="destructive" onClick={handleLogout}>
+              Logout
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* User Info */}
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <User className="h-5 w-5" />
@@ -47,6 +89,14 @@ export const UserInfoCard: React.FC<UserInfoCardProps> = ({ user }) => {
           </div>
         </div>
       </CardContent>
+
+      {/* Logout Button */}
+      <div className="p-4">
+        <Button variant="outline" onClick={() => setLogoutPopUp(true)}>
+          Log Out
+          <LogOut className="ml-2 h-4 w-4" />
+        </Button>
+      </div>
     </Card>
   )
 }

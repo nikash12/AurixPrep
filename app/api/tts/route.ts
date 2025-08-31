@@ -13,7 +13,11 @@ const languages: languagesTypes = {
   "Tamil": { "voice_id": "ta-IN-iniya", "style": "Conversational" },
   "Hindi": { "voice_id": "hi-IN-amit", "style": "Conversational" },
   "English": { "voice_id": "en-US-ken", "style": "Conversational" },
-  "Japanese": { "voice_id": "ja-JP-denki", "style": "Conversational" }
+  "Japanese": { "voice_id": "ja-JP-denki", "style": "Conversational" },
+  "Bengali": { "voice_id": "bn-IN-abhik", "style": "Conversational" },
+  "Italian": { "voice_id": "it-IT-lorenzo", "style": "Conversational" },
+  "Spanish": { "voice_id": "es-ES-javier", "style": "Conversational" },
+  "French": { "voice_id": "en-US-carter", "style": "Conversational" }
 };
 
 

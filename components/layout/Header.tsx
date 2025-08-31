@@ -23,7 +23,7 @@ const Header = () => {
         setUser(response.data.user);
         setIsLoggedIn(true);
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     };
     fetchData();
