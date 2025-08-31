@@ -35,6 +35,20 @@ AurixPrep is a modern, AI-driven interview practice platform that helps job seek
 - **PostCSS** - CSS processing
 - **Prisma Studio** - Database management
 
+### 🎤 TTS & Translation with Murf API
+
+Murf API is used to convert text to realistic speech in multiple languages.
+
+It also supports text translation between supported languages, enabling multilingual interview practice.
+
+Accessible via /api/tts routes:
+
+POST /api/tts - Convert text to speech
+
+PUT /api/tts/update - Update TTS settings
+
+POST /api/tts/translate - Translate text into target language
+
 ## 📁 Project Structure
 
 ```
@@ -97,6 +111,13 @@ GOOGLE_API_KEY="your-gemini-api-key"
 
 # JWT Secret
 JWT_SECRET="your-jwt-secret-key"
+# Database
+DATABASE_URL="postgresql://username:password@localhost:5432/aurixprep"
+
+# Murf API
+MURF_API_KEY="your-murf-api-key"
+
+
 ```
 
 ### 4. Database Setup
