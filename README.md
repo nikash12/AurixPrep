@@ -112,36 +112,6 @@ npx prisma migrate dev
 npx prisma db seed
 ```
 
-### 5. Start Development Server
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 🏗️ Build and Deployment
-
-### Build for Production
-
-```bash
-npm run build
-# or
-yarn build
-```
-
-### Start Production Server
-
-```bash
-npm start
-# or
-yarn start
-```
-
-## 📱 Usage
-
 ### 1. **Registration & Login**
 - Create an account or sign in to access your personalized dashboard
 - Secure authentication with JWT tokens
